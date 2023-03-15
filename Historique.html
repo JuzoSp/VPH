@@ -2,7 +2,7 @@
 <html>
   <head>
     <link rel="shortcut icon" href="Common/icon.png" />
-    <title>Historique des recettes</title>
+    <title>Historique des stocks</title>
     <style>
         *{
         padding: 0;
@@ -74,48 +74,45 @@
         </style>
   </head>
   <body>
-    <h1>Historique des recettes</h1>
-    <table>
-      <thead>
-        <tr>
-          <th>Date</th>
-          <th>Caisse (Matin)</th>
-          <th>Caisse (Soir)</th>
-          <th>Total</th>
-          <th>Dépense</th>
-          <th>Total Net</th>
-        </tr>
-      </thead>
-      <tbody id="recetteTableBody">
-      </tbody>
+    <h1>Historique des Stocks</h1>
+    <table style="width: 100%">
+      <tr>
+        <th>Date</th>
+        <th>Designation</th>
+        <th>Entrée</th>
+        <th>Stock initial</th>
+        <th>Sortie</th>
+        <th>Stock final</th>
+      </tr>
     </table>
-
     <script>
-      const recetteHistory = JSON.parse(localStorage.getItem('recetteHistory')) || [];
-      const tableBody = document.querySelector('#recetteTableBody');
+      function ajouter() {
+        // fonction pour ajouter les données saisies dans le tableau et les enregistrer dans le stockage local
+      }
 
-      recetteHistory.forEach(recetteData => {
-        const { datetime, caisse1, caisse2, depense } = recetteData;
+      function afficherHistorique() {
+        var stocks = JSON.parse(localStorage.getItem("stocks")) || [];
+        var tableau = document.querySelector("table");
 
-        // Calcul du total et du total net
-        const total = caisse1 + caisse2;
-        const totalNet = total - depense;
+        stocks.forEach(function (stock) {
+          var nouvelleLigne = tableau.insertRow(-1);
+          var colonneDate = nouvelleLigne.insertCell(0);
+          var colonneDesignation = nouvelleLigne.insertCell(1);
+          var colonneEntree = nouvelleLigne.insertCell(2);
+          var colonneStockInitial = nouvelleLigne.insertCell(3);
+          var colonneSortie = nouvelleLigne.insertCell(4);
+          var colonneStockFinal = nouvelleLigne.insertCell(5);
 
-        // Création de la ligne du tableau
-        const newRow = `
-          <tr>
-            <td>${datetime}</td>
-            <td>${caisse1.toFixed(2)}</td>
-            <td>${caisse2.toFixed(2)}</td>
-            <td>${total.toFixed(2)}</td>
-            <td>${depense.toFixed(2)}</td>
-            <td>${totalNet.toFixed(2)}</td>
-          </tr>
-        `;
+          colonneDate.innerHTML = stock.date;
+          colonneDesignation.innerHTML = stock.name;
+          colonneEntree.innerHTML = stock.num1;
+          colonneStockInitial.innerHTML = stock.num2;
+          colonneSortie.innerHTML = stock.sortie;
+          colonneStockFinal.innerHTML = stock.stockFinal;
+        });
+      }
 
-        // Ajout de la ligne au tableau
-        tableBody.insertAdjacentHTML('beforeend', newRow);
-      });
+      afficherHistorique();
     </script>
   </body>
 </html>

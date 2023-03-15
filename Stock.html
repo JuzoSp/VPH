@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="D:\Pharmacie\Stock\style.css">
+    <title>Pharmacie Andriamahefarivo</title>
+    <link rel="shortcut icon" href="D:\Pharmacie\Common\icon.png" />
+</head>
+<body>
+  <nav class="sidebar close">
+    <header>
+        <div class="image-text">
+            <span class="image">
+                <img src="D:\Pharmacie\Common\icon.png" alt="icon">
+            </span>
+                <div class="text header-text">
+                <span class="name">PHARMACIE ANDRIAMAHEFARIVO</span>
+            </div>
+        </div>
+        <i class="bare toggle"><img src="D:\Pharmacie\Common\fleche.png" alt="fleche"></i>
+    </header>
+    <div class="menu-bar">
+        <div class="menu">
+            <li class="search-box">
+                  <button type="submit"><img src="D:\Pharmacie\Common\recherche.png" alt="search"></button>  
+                    <input type="text" placeholder="Rechercher...">
+            </li>
+            <ul class="menu-minks">
+                <li class="nav-link">
+                    <a href="D:\Pharmacie\dashboard.html" class="icon">
+                        <img src="D:\Pharmacie\Common\operation.png" alt="operation">
+                        <span class="text nav-text">Operation Journalière</span>
+                    </a>
+                </li>
+                <li class="nav-link">
+                    <a href="D:\Pharmacie\Fournisseurs\Fournisseurs.html" class="icon">
+                        <img src="D:\Pharmacie\Common\fournisseur.png" alt="fournisseur">
+                        <span class="text nav-text">Fournisseurs</span>
+                    </a>
+                </li>
+                <li class="nav-link">
+                    <a href="D:\Pharmacie\Recette\Recette.html" class="icon">
+                        <img src="D:\Pharmacie\Common\recette.png" alt="recette">
+                        <span class="text nav-text">Recette et versement</span>
+                    </a>
+                </li>
+                <li class="nav-link">
+                    <a href="D:\Pharmacie\Gestion 10%\Gestion.html" class="icon">
+                        <img src="D:\Pharmacie\Common\gestion.png" alt="gestion">
+                        <span class="text nav-text">Gestion 10%</span>
+                    </a>
+                </li>
+                <li class="nav-link">
+                    <a href="D:\Pharmacie\Stock\Stock.html" class="icon">
+                        <img src="D:\Pharmacie\Common\stock.png" alt="stock">
+                        <span class="text nav-text">Stock</span>
+                    </a>
+                </li>
+                <li class="nav-link">
+                    <a href="D:\Pharmacie\Bons\Bons.html" class="icon">
+                        <img src="D:\Pharmacie\Common\bon.png" alt="bon">
+                        <span class="text nav-text">Bons</span>
+                    </a>
+                </li>
+                <li class="nav-link">
+                    <a href="D:\Pharmacie\Payements\Payement.html" class="icon">
+                        <img src="D:\Pharmacie\Common\payement.png" alt="payement">
+                        <span class="text nav-text">Payement des personnels et Avance</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="bottom-content">
+            <li class="">
+                <a href="" class="icon">
+                    <img src="D:\Pharmacie\Common\logout.jpg" alt="logout">
+                    <span class="text nav-text">Déconnexion</span>
+                </a>
+            </li>
+
+            <li class="mode">
+                <div class="moon-sun">
+                    <img src="D:\Pharmacie\Common\moon.png" alt="moon" class="moon">
+                </div>
+                <span class="mode-text text">Dark Mode</span>
+
+                <div class="toggle-switch">
+                    <span class="switch"></span>
+                </div>
+            </li>
+        </div>
+    </div>
+</nav>
+<section class="home">
+    <div class="text">
+        <div class="user-warpper">
+            <img src="D:\Pharmacie\Common\profil.png" alt="profil">
+            <div>
+                <h3>
+                    ANDRIAMAHEFARIVO Jeanson
+                </h3>
+            </div>
+            <div class="user-menu">
+              <div class="menu">
+                <ul>
+                  <li>
+                    <a href="Historique.html"><img src="D:\Pharmacie\Common\history.png" alt="" title="Historique"></a>
+                    <a href="message.html"><img src="D:\Pharmacie\Common\message.png" alt="message" title="Messages"></a>
+                    <a href="C:/Users/ASUS/Desktop/Pharmacie/Caisse%20Calculatrice/Caisse.html"><img src="D:\Pharmacie\Common\caisse.jpg" alt="" title="Caisse"></a>
+                    <a href="plannig.html"><img src="D:\Pharmacie\Common\plannig.png" alt="" title="Planing"></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+        </div>
+      </div>
+        <main>
+          <br>
+    <div class="card" id="Stock">
+          <h2>Stocks</h2>
+          <br>
+          <tr>
+            <input type="datetime-local" name="" id="date">
+            <input type="text" name="" placeholder="Designation" id="name">
+            <input type="text" name="" placeholder="Entrée" id="num1">
+            <input type="text" name="" placeholder="Stock initial" id="num2">
+            <input type="text" name="" placeholder="Sortie" id="sortie">
+          </tr>
+          <br>
+          <br>
+          <button type="button" onclick="ajouter();">Ajouter</button>
+          <br>
+          <table style="width: 100%">
+              <tr>
+                <th>Date</th>
+                <th>Designation</th>
+                <th>Entrée</th>
+                <th>Stock initial</th>
+                <th>Sortie</th>
+                <th>Stock final</th>
+              </tr>
+              <tr style="height: 500px;">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              </tr>
+            </table>
+      </div>
+<script>
+    function ajouter() {
+  var date = document.getElementById("date").value;
+  var name = document.getElementById("name").value;
+  var num1 = parseFloat(document.getElementById("num1").value);
+  var num2 = parseFloat(document.getElementById("num2").value);
+  var sortie = parseFloat(document.getElementById("sortie").value);
+
+  var stockFinal = num2 + num1 - sortie;
+  var tableau = document.querySelector("table");
+  var nouvelleLigne = tableau.insertRow(-1);
+  var colonneDate = nouvelleLigne.insertCell(0);
+  var colonneDesignation = nouvelleLigne.insertCell(1);
+  var colonneEntree = nouvelleLigne.insertCell(2);
+  var colonneStockInitial = nouvelleLigne.insertCell(3);
+  var colonneSortie = nouvelleLigne.insertCell(4);
+  var colonneStockFinal = nouvelleLigne.insertCell(5);
+
+  colonneDate.innerHTML = date;
+  colonneDesignation.innerHTML = name;
+  colonneEntree.innerHTML = num1;
+  colonneStockInitial.innerHTML = num2;
+  colonneSortie.innerHTML = sortie;
+  colonneStockFinal.innerHTML = stockFinal;
+
+  var stock = {
+    date: date,
+    name: name,
+    num1: num1,
+    num2: num2,
+    sortie: sortie,
+    stockFinal: stockFinal,
+  };
+
+  var stocks = JSON.parse(localStorage.getItem("stocks")) || [];
+  stocks.push(stock);
+  localStorage.setItem("stocks", JSON.stringify(stocks));
+}
+  
+const body = document.querySelector("body")
+      sidebar = body.querySelector(".sidebar"),
+      toggle = body.querySelector(".toggle"),
+      searchBtn = body.querySelector(".search-box"),
+      modeSwitch = body.querySelector(".toggle-switch"),
+      modeText = body.querySelector(".mode-text");
+
+      toggle.addEventListener("click", () =>{
+        sidebar.classList.toggle("close");
+      });
+      searchBtn.addEventListener("click", () =>{
+        sidebar.classList.remove("close");
+      });
+
+      modeSwitch.addEventListener("click", () =>{
+        body.classList.toggle("dark");
+
+        if(body.classList.contains("dark")){
+            modeText.innerText = "Light Mode"
+        }else{
+            modeText.innerText = "Dark Mode"
+        }
+      });
+</script>
+</body>
+</html>
