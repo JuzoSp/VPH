@@ -1,112 +1,129 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <link rel="shortcut icon" href="Common/icon.png" />
-    <title>Historique des fournisseurs</title>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historique</title>
     <style>
-        *{
-        padding: 0;
-        margin: 0;
-        box-sizing: border-box;
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
-    }
-    
-    :root{
-        --body-color: #E4E9F7;
-        --sidebar-color: #FFF;
-        --primary-color: #210336;
-        --primary-color-light: #F6F5FF;
-        --toggle-color: #DDD;
-        --text-color:#000;
-        --button-color: #e41061d0;
-        --input-color:#287ff0de;
-        --animation: #707070;
-        /*transition*/
-    
-        --tran-02: all 0.2s ease;
-        --tran-03: all 0.3s ease;
-        --tran-04: all 0.4s ease;
-        --tran-05: all 0.5s ease;
-    }
-    body{
-        height: 100vh;
-        background-color: var(--body-color);
-        transform: var(--tran-05);
-    }
-    
-    table{
-      position: relative;
-      left: 1.5%;
-    }
-    
-    h1{
-      text-align: center;
-      text-decoration: underline;
-    }
-    
-    td, th {
-        border: 1px solid #dddddd;
-        text-align: center;
-        color: var(--text-color);
-        padding: 8px;
-    }
-          
-    tr:nth-child(even) {
-        background-color: rgba(150, 212, 212, 0.4);
-    }
+         *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+}
+
+:root{
+    --body-color: #E4E9F7;
+    --sidebar-color: #FFF;
+    --primary-color: #210336;
+    --primary-color-light: #F6F5FF;
+    --toggle-color: #DDD;
+    --text-color:#000;
+    --button-color: #e41061d0;
+    --input-color:#287ff0de;
+    --animation: #707070;
+    /*transition*/
+
+    --tran-02: all 0.2s ease;
+    --tran-03: all 0.3s ease;
+    --tran-04: all 0.4s ease;
+    --tran-05: all 0.5s ease;
+}
+body{
+    height: 100vh;
+    background-color: var(--body-color);
+    transform: var(--tran-05);
+}
+
+h1{
+  text-align: center;
+  text-decoration: underline;
+}
+
+table{
+    position: relative;
+    left: 8%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: center;
+    color: var(--text-color);
+    padding: 8px;
+}
       
-      th:nth-child(even),td:nth-child(even) {
-        background-color: rgba(150, 212, 212, 0.4);
-    }
-    
-    tr, td{
-        width: 13%;
-        height: 15%;
-    }
-    
-    .button input{
-        position: absolute;
-        left: 50px;
-        color: var(--primary-color-light);
-        background-color: var(--button-color);
-        box-shadow: none;
-    }
-        </style>
-  </head>
-  <body>
-    <h1>Historique des fournisseurs</h1>
+tr:nth-child(even) {
+    background-color: rgba(150, 212, 212, 0.4);
+}
+  
+  th:nth-child(even),td:nth-child(even) {
+    background-color: rgba(150, 212, 212, 0.4);
+}
+
+tr, td{
+    width: 13%;
+    height: 15%;
+}
+
+.button input{
+    position: absolute;
+    left: 110px;
+    color: var(--button-color);
+}
+button{
+    position: relative;
+    left: 85%;
+    width: 150px;
+    height: 35px;
+    border-radius: 10px;
+    border: 1px solid #fffa;
+    color: #fff;
+    background: var(--button-color);
+    cursor: pointer;
+}
+    </style>
+</head>
+<body>
+    <h1>Historique Gestion 10%</h1>
+    <br>
+    <button id="effacer">Effacer l'historique</button>
+    <br>
     <table>
       <thead>
         <tr>
           <th>Date</th>
-          <th>Numéro Facture</th>
-          <th>Nom du Fournisseur</th>
-          <th>Montant de la Facture</th>
-          <th>Date de payement</th>
+          <th>Entrée</th>
+          <th>Sortie</th>
+          <th>Solde</th>
+          <th>Observation</th>
         </tr>
       </thead>
-      <tbody id="supplier-data">
+      <tbody id="history">
       </tbody>
     </table>
+    <br>
+    <div class="button">
+        <input type="button" value="Imprimer" onClick="window.print()">
+      </div>
     <script>
-      // Récupération des données du stockage local
-      var suppliers = JSON.parse(localStorage.getItem("suppliers")) || [];
-      var tableBody = document.getElementById("supplier-data");
+      const history = JSON.parse(localStorage.getItem('history')) || [];
+      const tbody = document.getElementById('history');
+      const effacerBtn = document.querySelector('#effacer');
 
-      // Boucle à travers les fournisseurs et ajoute-les au tableau
-      suppliers.forEach(function(supplier) {
-        var row = tableBody.insertRow();
-        var date = row.insertCell();
-        var note = row.insertCell();
-        var supplierName = row.insertCell();
-        var num = row.insertCell();
-        var payDate = row.insertCell();
-        date.innerHTML = supplier.date;
-        note.innerHTML = supplier.note;
-        supplierName.innerHTML = supplier.supplier;
-        num.innerHTML = supplier.num;
-        payDate.innerHTML = supplier.payDate;
+      history.forEach(entry => {
+        const row = tbody.insertRow(-1);
+        row.insertCell(0).innerHTML = entry.date;
+        row.insertCell(1).innerHTML = entry.entree;
+        row.insertCell(2).innerHTML = entry.sortie;
+        row.insertCell(3).innerHTML = entry.solde;
+        row.insertCell(4).innerHTML = entry.observation;
       });
+
+      effacerBtn.addEventListener('click', () => {
+          localStorage.removeItem('history');
+          location.reload();
+    });
     </script>
-  </body>
+</body>
 </html>
