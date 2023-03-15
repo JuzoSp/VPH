@@ -1,13 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html>
+  <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pharmacie Andriamahefarivo</title>
-    <link rel="shortcut icon" href="Common/icon.png" />
+    <title>Historique des bons</title>
     <style>
-    *{
+        *{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -37,14 +34,14 @@ body{
     transform: var(--tran-05);
 }
 
-table{
-  position: relative;
-  left: 1.5%;
-}
-
 h1{
   text-align: center;
   text-decoration: underline;
+}
+
+table{
+    position: relative;
+    left: 2.5%;
 }
 
 td, th {
@@ -69,57 +66,63 @@ tr, td{
 
 .button input{
     position: absolute;
-    left: 50px;
-    color: var(--primary-color-light);
-    background-color: var(--button-color);
-    box-shadow: none;
+    left: 110px;
+}
+button{
+    position: relative;
+    left: 85%;
+    width: 150px;
+    height: 35px;
+    border-radius: 10px;
+    border: 1px solid #fffa;
+    color: #fff;
+    background: var(--button-color);
+    cursor: pointer;
 }
     </style>
-</head>
-<body>
-  <h1> Historiques </h1>
-    <table>
-        <thead>
-          <tr>
-            <th>Date</th>
-            <th>Opération</th>
-            <th>Montant</th>
-            <th>Taxe</th>
-            <th>Montant Hors Taxe</th>
-            <th>Montant Total</th>
-          </tr>
-        </thead>
-        <tbody id="table-body"></tbody>
-      </table>
+    </head>
+    <body>
+      <h1>Historique des bons</h1>
       <br>
-    <div class="button">
-      <input type="button" value="Imprimer" onClick="window.print()">
-    </div>
+      <button id="effacer">Effacer l'historique</button>
+      <br>
+      <table>
+        <tr>
+          <th>Date</th>
+          <th>Nom</th>
+          <th>Designation</th>
+          <th>Prix U</th>
+          <th>Nombres</th>
+          <th>Prix T</th>
+        </tr>
+        <tbody id="bons">
+        </tbody>
+      </table>
+      
       <script>
-      function afficherDonnees() {
-        let data = JSON.parse(localStorage.getItem("data"));
-        let tableBody = document.getElementById("table-body");
-      
-        // vider le corps de la table avant d'ajouter des données
-        tableBody.innerHTML = "";
-      
-        // ajouter chaque ligne de données à la table
-        data.forEach(function(item) {
-          let row = document.createElement("tr");
-          row.innerHTML = `
-            <td>${item.date}</td>
-            <td>${item.operation}</td>
-            <td>${item.montant}</td>
-            <td>${item.taxe}</td>
-            <td>${item.montantHorsTaxe}</td>
-            <td>${item.montantTotal}</td>
+        const bons = JSON.parse(localStorage.getItem('bons')) || [];
+        const tbody = document.querySelector('#bons');
+        const effacerBtn = document.querySelector('#effacer');
+  
+        bons.forEach(bon => {
+          const ligne = `
+            <tr>
+              <td>${bon.date}</td>
+              <td>${bon.nom}</td>
+              <td>${bon.designation}</td>
+              <td>${bon.prixUnitaire}</td>
+              <td>${bon.nbProduits}</td>
+              <td>${bon.prixTotal}</td>
+            </tr>
           `;
-          tableBody.appendChild(row);
+          tbody.insertAdjacentHTML('beforeend', ligne);
         });
-      }
-      
-      // appeler la fonction pour afficher les données initiales
-      afficherDonnees();
-      </script>      
-</body>
-</html>
+  
+        effacerBtn.addEventListener('click', () => {
+          localStorage.removeItem('bons');
+          location.reload();
+        });
+      </script>
+    </body>
+  </html>
+  

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="D:\Pharmacie\style.css">
+    <title>Pharmacie Andriamahefarivo</title>
+    <link rel="shortcut icon" href="D:\\Pharmacie\\Common\\icon.png" />
+</head>
+<body>
+    <nav class="sidebar close">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    <img src="D:\\Pharmacie\\Common\\icon.png" alt="icon">
+                </span>
+                    <div class="text header-text">
+                    <span class="name">PHARMACIE ANDRIAMAHEFARIVO</span>
+                </div>
+            </div>
+            <i class="bare toggle"><img src="D:\\Pharmacie\\Common\\fleche.png" alt="fleche"></i>
+        </header>
+        <div class="menu-bar">
+            <div class="menu">
+                <li class="search-box">
+                      <button type="submit"><img src="D:\\Pharmacie\\Common\\recherche.png" alt="search"></button>  
+                        <input type="text" placeholder="Rechercher...">
+                </li>
+                <ul class="menu-minks">
+                    <li class="nav-link">
+                        <a href="#Operation" class="icon" title="Opérations">
+                            <img src="D:\\Pharmacie\\Common\\operation.png" alt="operation">
+                            <span class="text nav-text">Operation Journalière</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="D:\Pharmacie\Fournisseurs\Fournisseurs.html" class="icon" title="Fournisseurs">
+                            <img src="D:\\Pharmacie\\Common\\fournisseur.png" alt="fournisseur">
+                            <span class="text nav-text">Fournisseurs</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="D:\Pharmacie\Recette\Recette.html" class="icon" title="Recette">
+                            <img src="D:\\Pharmacie\\Common\\recette.png" alt="recette">
+                            <span class="text nav-text">Recette et versement</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="D:\Pharmacie\Gestion 10%\Gestion.html" class="icon" title="Gestion 10%">
+                            <img src="D:\\Pharmacie\\Common\\gestion.png" alt="gestion">
+                            <span class="text nav-text">Gestion 10%</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="D:\Pharmacie\Stock\Stock.html" class="icon" title="Stocks">
+                            <img src="D:\\Pharmacie\\Common\\stock.png" alt="stock">
+                            <span class="text nav-text">Stock</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="D:\Pharmacie\Bons\Bons.html" class="icon" title="Bons">
+                            <img src="D:\\Pharmacie\\Common\\bon.png" alt="bon">
+                            <span class="text nav-text">Bons</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="D:\Pharmacie\Payements\Payement.html" class="icon" title="Payement">
+                            <img src="D:\\Pharmacie\\Common\\payement.png" alt="payement">
+                            <span class="text nav-text">Payement des personnels et Avance</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="bottom-content">
+                <li class="">
+                    <a href="" class="icon" title="Déconnexion">
+                        <img src="D:\\Pharmacie\\Common\\logout.jpg" alt="logout">
+                        <span class="text nav-text">Déconnexion</span>
+                    </a>
+                </li>
+
+                <li class="mode">
+                    <div class="moon-sun">
+                        <img src="D:\\Pharmacie\\Common\\moon.png" alt="moon" class="moon">
+                    </div>
+                    <span class="mode-text text">Dark Mode</span>
+
+                    <div class="toggle-switch" title="Mode sombre">
+                        <span class="switch"></span>
+                    </div>
+                </li>
+            </div>
+        </div>
+    </nav>
+    <section class="home">
+        <div class="text">
+            <div class="user-warpper">
+                <img src="D:\\Pharmacie\\Common\\profil.png" alt="profil">
+                <div>
+                    <h3>
+                        ANDRIAMAHEFARIVO Jeanson
+                    </h3>
+                </div>
+                <div class="user-menu">
+                  <div class="menu">
+                    <ul>
+                      <li>
+                        <a href="Historique.html"><img src="D:\\Pharmacie\\Common\\history.png" alt="Historique" title="Historique"></a>
+                        <a href="message.html"><img src="D:\\Pharmacie\\Common\\message.png" alt="message" title="Messages"></a>
+                        <a href="C:/Users/ASUS/Desktop/Pharmacie/Caisse%20Calculatrice/Caisse.html"><img src="D:\\Pharmacie\\Common\\caisse.jpg" alt="" title="Caisse"></a>
+                        <a href="plannig.html"><img src="D:\\Pharmacie\\Common\\plannig.png" alt="Planing" title="Planing"></a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+            </div>
+          </div>
+            <main>
+              <br>
+    <div class="card" id="Bons">
+        <h2>Bons</h2>
+        <input type="datetime-local" name="">
+          <input type="text" name="" placeholder="Nom(Adresse, Tél)" >
+          <input type="text" name="" placeholder="Designation">
+          <input type="text" name="" placeholder="Prix Unitaires en ariary" id="num1">
+          <input type="text" name="" placeholder="Nombres des Produits" id="num2">
+          <br>
+        <br>
+        <button type="button" onclick="ajouterBon();">Ajouter</button>
+        <br>
+        <table  style="width: 100%">
+            <tr>
+              <th>Date</th>
+              <th>Nom(Adresse, Tél)</th>
+              <th>Designation</th>
+              <th>Prix U</th>
+              <th>Nombres</th>
+              <th>Prix T</th>
+            </tr>
+            <tr style="height: 400px;">
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+              <th><button type="button">Récapitulation</button></th>
+              <th></th>
+              <th></th>
+              <th></th>
+              <th></th>
+              <th></th>
+            </tr>
+          </table>
+    </div>
+    <script>
+const boutonAjouter = document.querySelector('#Bons button');
+boutonAjouter.addEventListener('click', ajouterBon);
+
+function ajouterBon() {
+  // Récupération des données saisies dans les inputs
+  const date = document.querySelector('#Bons input[type=datetime-local]').value;
+  const nom = document.querySelector('#Bons input[placeholder="Nom(Adresse, Tél)"]').value;
+  const designation = document.querySelector('#Bons input[placeholder="Designation"]').value;
+  const prixUnitaire = document.querySelector('#Bons input#num1').value;
+  const nbProduits = document.querySelector('#Bons input#num2').value;
+
+  // Calcul du prix total
+  const prixTotal = prixUnitaire * nbProduits;
+
+  // Création de la ligne à ajouter dans le tableau
+  const ligne = `
+    <tr>
+      <td>${date}</td>
+      <td>${nom}</td>
+      <td>${designation}</td>
+      <td>${prixUnitaire}</td>
+      <td>${nbProduits}</td>
+      <td>${prixTotal}</td>
+    </tr>
+  `;
+
+  // Ajout de la ligne dans le tableau
+  const tableau = document.querySelector('#Bons table');
+  const derniereLigne = tableau.querySelector('tr:last-of-type');
+  derniereLigne.insertAdjacentHTML('beforebegin', ligne);
+
+  // Enregistrement des données dans le stockage local
+  const bon = {
+    date: date,
+    nom: nom,
+    designation: designation,
+    prixUnitaire: prixUnitaire,
+    nbProduits: nbProduits,
+    prixTotal: prixTotal,
+  };
+  const bons = JSON.parse(localStorage.getItem('bons')) || [];
+  bons.push(bon);
+  localStorage.setItem('bons', JSON.stringify(bons));
+}
+
+ const body = document.querySelector("body")
+      sidebar = body.querySelector(".sidebar"),
+      toggle = body.querySelector(".toggle"),
+      searchBtn = body.querySelector(".search-box"),
+      modeSwitch = body.querySelector(".toggle-switch"),
+      modeText = body.querySelector(".mode-text");
+
+      toggle.addEventListener("click", () =>{
+        sidebar.classList.toggle("close");
+      });
+      searchBtn.addEventListener("click", () =>{
+        sidebar.classList.remove("close");
+      });
+
+      modeSwitch.addEventListener("click", () =>{
+        body.classList.toggle("dark");
+
+        if(body.classList.contains("dark")){
+            modeText.innerText = "Light Mode"
+        }else{
+            modeText.innerText = "Dark Mode"
+        }
+      });
+
+    </script>
+</body>
+</html>
