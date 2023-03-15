@@ -1,12 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Historique</title>
+<html>
+  <head>
+    <title>Historique des données </title>
     <style>
-         *{
+        *{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -43,7 +40,7 @@ h1{
 
 table{
     position: relative;
-    left: 8%;
+    left: 2.5%;
 }
 
 td, th {
@@ -69,7 +66,6 @@ tr, td{
 .button input{
     position: absolute;
     left: 110px;
-    color: var(--button-color);
 }
 button{
     position: relative;
@@ -83,47 +79,46 @@ button{
     cursor: pointer;
 }
     </style>
-</head>
-<body>
-    <h1>Historique Gestion 10%</h1>
+  </head>
+  <body>
+    <h1>Historique des données de Payements</h1>
     <br>
-    <button id="effacer">Effacer l'historique</button>
+    <button onclick="printPage()">Imprimer</button>
     <br>
-    <table>
-      <thead>
-        <tr>
-          <th>Date</th>
-          <th>Entrée</th>
-          <th>Sortie</th>
-          <th>Solde</th>
-          <th>Observation</th>
-        </tr>
-      </thead>
-      <tbody id="history">
-      </tbody>
+    <table style="width: 100%">
+      <tr>
+        <th>Date</th>
+        <th>Nom</th>
+        <th>Salaire</th>
+        <th>Avance</th>
+        <th>Reste</th>
+        <th>Sommes</th>
+      </tr>
     </table>
-    <br>
-    <div class="button">
-        <input type="button" value="Imprimer" onClick="window.print()">
-      </div>
     <script>
-      const history = JSON.parse(localStorage.getItem('history')) || [];
-      const tbody = document.getElementById('history');
-      const effacerBtn = document.querySelector('#effacer');
-
-      history.forEach(entry => {
-        const row = tbody.insertRow(-1);
-        row.insertCell(0).innerHTML = entry.date;
-        row.insertCell(1).innerHTML = entry.entree;
-        row.insertCell(2).innerHTML = entry.sortie;
-        row.insertCell(3).innerHTML = entry.solde;
-        row.insertCell(4).innerHTML = entry.observation;
-      });
-
-      effacerBtn.addEventListener('click', () => {
-          localStorage.removeItem('history');
-          location.reload();
-    });
+      function loadDataFromLocalStorage() {
+        let data = JSON.parse(localStorage.getItem("data"));
+        let table = document.getElementsByTagName("table")[0];
+        for (let i = 0; i < data.length; i++) {
+          let newRow = table.insertRow(1);
+          let dateCell = newRow.insertCell(0);
+          let nameCell = newRow.insertCell(1);
+          let num1Cell = newRow.insertCell(2);
+          let num2Cell = newRow.insertCell(3);
+          let restCell = newRow.insertCell(4);
+          let sumCell = newRow.insertCell(5);
+          dateCell.innerHTML = data[i].date;
+          nameCell.innerHTML = data[i].name;
+          num1Cell.innerHTML = data[i].num1;
+          num2Cell.innerHTML = data[i].num2;
+          restCell.innerHTML = data[i].rest;
+          sumCell.innerHTML = data[i].sum;
+        }
+      }
+      loadDataFromLocalStorage();
+      function printPage() {
+  window.print();
+}
     </script>
-</body>
+  </body>
 </html>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="D:\Pharmacie\style.css">
+    <title>Pharmacie Andriamahefarivo</title>
+    <link rel="shortcut icon" href="D:\Pharmacie\Common\icon.png" />
+</head>
+<body>
+    <nav class="sidebar close">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    <img src="D:\Pharmacie\Common\icon.png" alt="icon">
+                </span>
+                    <div class="text header-text">
+                    <span class="name">PHARMACIE ANDRIAMAHEFARIVO</span>
+                </div>
+            </div>
+            <i class="bare toggle"><img src="D:\Pharmacie\Common\fleche.png" alt="fleche"></i>
+        </header>
+        <div class="menu-bar">
+            <div class="menu">
+                <li class="search-box">
+                      <button type="submit"><img src="D:\Pharmacie\Common\recherche.png" alt="search"></button>  
+                        <input type="text" placeholder="Rechercher...">
+                </li>
+                <ul class="menu-minks">
+                    <li class="nav-link">
+                        <a href="D:\Pharmacie\dashboard.html" class="icon">
+                            <img src="D:\Pharmacie\Common\operation.png" alt="operation">
+                            <span class="text nav-text">Operation Journalière</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="D:\Pharmacie\Fournisseurs\Fournisseurs.html" class="icon">
+                            <img src="D:\Pharmacie\Common\fournisseur.png" alt="fournisseur">
+                            <span class="text nav-text">Fournisseurs</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="D:\Pharmacie\Recette\Recette.html" class="icon">
+                            <img src="D:\Pharmacie\Common\recette.png" alt="recette">
+                            <span class="text nav-text">Recette et versement</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="D:\Pharmacie\Gestion 10%\Gestion.html" class="icon">
+                            <img src="D:\Pharmacie\Common\gestion.png" alt="gestion">
+                            <span class="text nav-text">Gestion 10%</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="D:\Pharmacie\Stock\Stock.html" class="icon">
+                            <img src="D:\Pharmacie\Common\stock.png" alt="stock">
+                            <span class="text nav-text">Stock</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="D:\Pharmacie\Bons\Bons.html" class="icon">
+                            <img src="D:\Pharmacie\Common\bon.png" alt="bon">
+                            <span class="text nav-text">Bons</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="D:\Pharmacie\Payements\Payement.html" class="icon">
+                            <img src="D:\Pharmacie\Common\payement.png" alt="payement">
+                            <span class="text nav-text">Payement des personnels et Avance</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="bottom-content">
+                <li class="">
+                    <a href="" class="icon">
+                        <img src="D:\Pharmacie\Common\logout.jpg" alt="logout">
+                        <span class="text nav-text">Déconnexion</span>
+                    </a>
+                </li>
+
+                <li class="mode">
+                    <div class="moon-sun">
+                        <img src="D:\Pharmacie\Common\moon.png" alt="moon" class="moon">
+                    </div>
+                    <span class="mode-text text">Dark Mode</span>
+
+                    <div class="toggle-switch">
+                        <span class="switch"></span>
+                    </div>
+                </li>
+            </div>
+        </div>
+    </nav>
+    <section class="home">
+        <div class="text">
+            <div class="user-warpper">
+                <img src="D:\Pharmacie\Common\profil.png" alt="profil">
+                <div>
+                    <h3>
+                        ANDRIAMAHEFARIVO Jeanson
+                    </h3>
+                </div>
+                <div class="user-menu">
+                  <div class="menu">
+                    <ul>
+                      <li>
+                        <a href="Historique.html"><img src="D:\Pharmacie\Common\history.png" alt="" title="Historique"></a>
+                        <a href="message.html"><img src="D:\Pharmacie\Common\message.png" alt="message" title="Messages"></a>
+                        <a href="C:/Users/ASUS/Desktop/Pharmacie/Caisse%20Calculatrice/Caisse.html"><img src="D:\Pharmacie\Common\caisse.jpg" alt="" title="Caisse"></a>
+                        <a href="plannig.html"><img src="D:\Pharmacie\Common\plannig.png" alt="" title="Planing"></a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+            </div>
+          </div>
+            <main>
+              <br>
+    <div class="card" id="Payement">
+        <h2>Payement des Personnels et Avance</h2>
+        <th>
+          <input type="datetime-local" name="" id="">
+          <input type="text" name="" placeholder="Nom de l'employer" id="name">
+          <input type="text" name="" placeholder="Salaire en ariary" id="num1">
+          <input type="text" name="" placeholder="Avance en ariary" id="num2">
+        </th>
+        <br>
+        <br>
+        <button type="button" onclick="AddButton()">Ajouter</button>
+        <br>
+        <table  style="width: 100%">
+            <tr>
+              <th>Date</th>
+              <th>Nom</th>
+              <th>Salaire</th>
+              <th>Avance</th>
+              <th>Reste</th>
+              <th>Sommes</th>
+            </tr>
+            <tr style="height: 400px;">
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+              <th></th>
+              <th></th>
+              <th></th>
+              <th></th>
+              <th></th>
+              <th></th>
+            </tr>
+          </table>
+    </div>
+    <script>
+       function AddButton() {
+  let name = document.getElementById("name").value;
+  let num1 = parseInt(document.getElementById("num1").value);
+  let num2 = parseInt(document.getElementById("num2").value);
+  let rest = num1 - num2;
+  let sum = num1 + num2 + rest;
+  let table = document.getElementsByTagName("table")[0];
+  let newRow = table.insertRow(1);
+  let dateCell = newRow.insertCell(0);
+  let nameCell = newRow.insertCell(1);
+  let num1Cell = newRow.insertCell(2);
+  let num2Cell = newRow.insertCell(3);
+  let restCell = newRow.insertCell(4);
+  let sumCell = newRow.insertCell(5);
+  dateCell.innerHTML = new Date().toLocaleString();
+  nameCell.innerHTML = name;
+  num1Cell.innerHTML = num1;
+  num2Cell.innerHTML = num2;
+  restCell.innerHTML = rest;
+  sumCell.innerHTML = sum;
+  document.getElementById("name").value = "";
+  document.getElementById("num1").value = "";
+  document.getElementById("num2").value = "";
+  document.getElementById("rest").value = "";
+  saveDataToLocalStorage();
+}
+
+function recapButton() {
+  let table = document.getElementsByTagName("table")[0];
+  let numRows = table.rows.length;
+  let totalSum = 0;
+  for (let i = 1; i < numRows; i++) {
+    let rowSum = parseInt(table.rows[i].cells[5].innerHTML);
+    totalSum += rowSum;
+  }
+  alert("Le total des sommes est : " + totalSum);
+}
+
+function saveDataToLocalStorage() {
+  let table = document.getElementsByTagName("table")[0];
+  let numRows = table.rows.length;
+  let data = [];
+  for (let i = 1; i < numRows; i++) {
+    let row = {
+      date: table.rows[i].cells[0].innerHTML,
+      name: table.rows[i].cells[1].innerHTML,
+      num1: table.rows[i].cells[2].innerHTML,
+      num2: table.rows[i].cells[3].innerHTML,
+      rest: table.rows[i].cells[4].innerHTML,
+      sum: table.rows[i].cells[5].innerHTML,
+    };
+    data.push(row);
+  }
+  localStorage.setItem("stone", JSON.stringify(data));
+}
+
+const body = document.querySelector("body")
+      sidebar = body.querySelector(".sidebar"),
+      toggle = body.querySelector(".toggle"),
+      searchBtn = body.querySelector(".search-box"),
+      modeSwitch = body.querySelector(".toggle-switch"),
+      modeText = body.querySelector(".mode-text");
+
+      toggle.addEventListener("click", () =>{
+        sidebar.classList.toggle("close");
+      });
+      searchBtn.addEventListener("click", () =>{
+        sidebar.classList.remove("close");
+      });
+
+      modeSwitch.addEventListener("click", () =>{
+        body.classList.toggle("dark");
+
+        if(body.classList.contains("dark")){
+            modeText.innerText = "Light Mode"
+        }else{
+            modeText.innerText = "Dark Mode"
+        }
+      });
+    </script>
+</body>
+</html>
