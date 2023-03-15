@@ -1,124 +1,121 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Historique des données </title>
+    <link rel="shortcut icon" href="Common/icon.png" />
+    <title>Historique des recettes</title>
     <style>
         *{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
-}
-
-:root{
-    --body-color: #E4E9F7;
-    --sidebar-color: #FFF;
-    --primary-color: #210336;
-    --primary-color-light: #F6F5FF;
-    --toggle-color: #DDD;
-    --text-color:#000;
-    --button-color: #e41061d0;
-    --input-color:#287ff0de;
-    --animation: #707070;
-    /*transition*/
-
-    --tran-02: all 0.2s ease;
-    --tran-03: all 0.3s ease;
-    --tran-04: all 0.4s ease;
-    --tran-05: all 0.5s ease;
-}
-body{
-    height: 100vh;
-    background-color: var(--body-color);
-    transform: var(--tran-05);
-}
-
-h1{
-  text-align: center;
-  text-decoration: underline;
-}
-
-table{
-    position: relative;
-    left: 2.5%;
-}
-
-td, th {
-    border: 1px solid #dddddd;
-    text-align: center;
-    color: var(--text-color);
-    padding: 8px;
-}
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+    }
+    
+    :root{
+        --body-color: #E4E9F7;
+        --sidebar-color: #FFF;
+        --primary-color: #210336;
+        --primary-color-light: #F6F5FF;
+        --toggle-color: #DDD;
+        --text-color:#000;
+        --button-color: #e41061d0;
+        --input-color:#287ff0de;
+        --animation: #707070;
+        /*transition*/
+    
+        --tran-02: all 0.2s ease;
+        --tran-03: all 0.3s ease;
+        --tran-04: all 0.4s ease;
+        --tran-05: all 0.5s ease;
+    }
+    body{
+        height: 100vh;
+        background-color: var(--body-color);
+        transform: var(--tran-05);
+    }
+    
+    table{
+      position: relative;
+      left: 1.5%;
+    }
+    
+    h1{
+      text-align: center;
+      text-decoration: underline;
+    }
+    
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: center;
+        color: var(--text-color);
+        padding: 8px;
+    }
+          
+    tr:nth-child(even) {
+        background-color: rgba(150, 212, 212, 0.4);
+    }
       
-tr:nth-child(even) {
-    background-color: rgba(150, 212, 212, 0.4);
-}
-  
-  th:nth-child(even),td:nth-child(even) {
-    background-color: rgba(150, 212, 212, 0.4);
-}
-
-tr, td{
-    width: 13%;
-    height: 15%;
-}
-
-.button input{
-    position: absolute;
-    left: 110px;
-}
-button{
-    position: relative;
-    left: 85%;
-    width: 150px;
-    height: 35px;
-    border-radius: 10px;
-    border: 1px solid #fffa;
-    color: #fff;
-    background: var(--button-color);
-    cursor: pointer;
-}
-    </style>
+      th:nth-child(even),td:nth-child(even) {
+        background-color: rgba(150, 212, 212, 0.4);
+    }
+    
+    tr, td{
+        width: 13%;
+        height: 15%;
+    }
+    
+    .button input{
+        position: absolute;
+        left: 50px;
+        color: var(--primary-color-light);
+        background-color: var(--button-color);
+        box-shadow: none;
+    }
+        </style>
   </head>
   <body>
-    <h1>Historique des données de Payements</h1>
-    <br>
-    <button onclick="printPage()">Imprimer</button>
-    <br>
-    <table style="width: 100%">
-      <tr>
-        <th>Date</th>
-        <th>Nom</th>
-        <th>Salaire</th>
-        <th>Avance</th>
-        <th>Reste</th>
-        <th>Sommes</th>
-      </tr>
+    <h1>Historique des recettes</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Caisse (Matin)</th>
+          <th>Caisse (Soir)</th>
+          <th>Total</th>
+          <th>Dépense</th>
+          <th>Total Net</th>
+        </tr>
+      </thead>
+      <tbody id="recetteTableBody">
+      </tbody>
     </table>
+
     <script>
-      function loadDataFromLocalStorage() {
-        let data = JSON.parse(localStorage.getItem("data"));
-        let table = document.getElementsByTagName("table")[0];
-        for (let i = 0; i < data.length; i++) {
-          let newRow = table.insertRow(1);
-          let dateCell = newRow.insertCell(0);
-          let nameCell = newRow.insertCell(1);
-          let num1Cell = newRow.insertCell(2);
-          let num2Cell = newRow.insertCell(3);
-          let restCell = newRow.insertCell(4);
-          let sumCell = newRow.insertCell(5);
-          dateCell.innerHTML = data[i].date;
-          nameCell.innerHTML = data[i].name;
-          num1Cell.innerHTML = data[i].num1;
-          num2Cell.innerHTML = data[i].num2;
-          restCell.innerHTML = data[i].rest;
-          sumCell.innerHTML = data[i].sum;
-        }
-      }
-      loadDataFromLocalStorage();
-      function printPage() {
-  window.print();
-}
+      const recetteHistory = JSON.parse(localStorage.getItem('recetteHistory')) || [];
+      const tableBody = document.querySelector('#recetteTableBody');
+
+      recetteHistory.forEach(recetteData => {
+        const { datetime, caisse1, caisse2, depense } = recetteData;
+
+        // Calcul du total et du total net
+        const total = caisse1 + caisse2;
+        const totalNet = total - depense;
+
+        // Création de la ligne du tableau
+        const newRow = `
+          <tr>
+            <td>${datetime}</td>
+            <td>${caisse1.toFixed(2)}</td>
+            <td>${caisse2.toFixed(2)}</td>
+            <td>${total.toFixed(2)}</td>
+            <td>${depense.toFixed(2)}</td>
+            <td>${totalNet.toFixed(2)}</td>
+          </tr>
+        `;
+
+        // Ajout de la ligne au tableau
+        tableBody.insertAdjacentHTML('beforeend', newRow);
+      });
     </script>
   </body>
 </html>
